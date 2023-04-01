@@ -9,6 +9,11 @@ $(document).on('keyup', '#defConfig', function(e) {
         console.clear();
         return false;
     }
+    let provider = getCleanIp();
+    if ( provider === "" ) {
+        console.clear();
+        return false;
+    }
     let protocol = getProtocol(config);
     if ( ! protocols.includes(protocol) ) {
         $('#protocolAlert').removeClass('none');
@@ -28,7 +33,7 @@ $(document).on('keyup', '#defConfig', function(e) {
     }
 });
 
-$(document).on('change', '#options', function(e) {
+$(document).on('change', '#provider', function(e) {
     e.preventDefault();
     let option = $(this).val();
     if ( option === 'other' ) {
@@ -247,9 +252,12 @@ function generate(config) {
 }
 
 function getCleanIp() {
-    let value = $('#options').val();
-    if ( value === 'other') {
+    let value = $('#provider').val();
+    if ( value === 'other' ) {
         value = $('#cleanIp').val();
+    }
+    if ( value === null ) {
+        return "";
     }
     return value;
 }
