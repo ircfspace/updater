@@ -102,6 +102,7 @@ function update(config) {
             }
         }
         config.add = cleanIp;
+        config.ps = (config.ps !== "" ? config.ps : "ircf");
     }
     else if ( config.protocol === 'vless' || config.protocol === 'trojan' ) {
         if ( fullEdit ) {
@@ -114,6 +115,7 @@ function update(config) {
             }
         }
         config.address = cleanIp;
+        config.remark = (config.remark !== "" ? config.remark : "ircf");
     }
     /*else if ( config.protocol === 'ss' ) {
 
