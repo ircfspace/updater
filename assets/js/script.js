@@ -55,6 +55,18 @@ $(document).on('keyup', '#cleanIp', function(e) {
 
 $(document).on('change', 'input[type="radio"][name="update"]', function(e) {
     e.preventDefault();
+    let fullEdit = document.getElementById('fullEdit').checked;
+    if ( fullEdit ) {
+        $('#utls, #alpn').removeAttr('disabled');
+    }
+    else {
+        $('#utls, #alpn').attr('disabled', 'disabled').val("");
+    }
+    $('#defConfig').trigger('keyup');
+});
+
+$(document).on('change', '#alpn, #utls', function(e) {
+    e.preventDefault();
     $('#defConfig').trigger('keyup');
 });
 
@@ -95,6 +107,14 @@ function update(config) {
         if ( fullEdit ) {
             config.host = config.add;
             config.sni = config.add;
+            let fp = getFingerprint();
+            let alpn = getAlpn();
+            if ( fp !== "" ) {
+                config.fp = fp;
+            }
+            if ( alpn !== "" ) {
+                config.alpn = alpn;
+            }
         }
         else {
             if ( typeof config.host === 'undefined' ) {
@@ -108,6 +128,14 @@ function update(config) {
         if ( fullEdit ) {
             config.host = config.address;
             config.sni = config.address;
+            let fp = getFingerprint();
+            let alpn = getAlpn();
+            if ( fp !== "" ) {
+                config.fp = fp;
+            }
+            if ( alpn !== "" ) {
+                config.alpn = alpn;
+            }
         }
         else {
             if ( typeof config.host === 'undefined' ) {
@@ -262,6 +290,22 @@ function getCleanIp() {
         return "";
     }
     return value;
+}
+
+function getFingerprint() {
+    let value = $('#utls').val();
+    if ( value && value !== '' ) {
+        return value;
+    }
+    return "";
+}
+
+function getAlpn() {
+    let value = $('#alpn').val();
+    if ( value && value !== '' ) {
+        return value;
+    }
+    return "";
 }
 
 function isValidIp(string) {

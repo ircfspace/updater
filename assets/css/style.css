@@ -212,6 +212,22 @@ img[alt="loader"] {
 	background: #fff;
 }
 
+.form-group {
+	float: right;
+	width: 100%;
+}
+.form-group .form-control {
+	width: 49%;
+	float: right;
+	margin: 0;
+}
+.form-group .form-control:first-child {
+	width: 49%;
+}
+.form-group .form-control:last-child {
+	float: left;
+}
+
 footer {
 	padding: 10px 0;
 	/*position: fixed;
