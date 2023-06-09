@@ -53,6 +53,11 @@ $(document).on('keyup', '#cleanIp', function(e) {
     $('#defConfig').trigger('keyup');
 });
 
+$(document).on('click', '#updater', function(e) {
+    e.preventDefault();
+    $('#defConfig').trigger('keyup');
+});
+
 $(document).on('change', 'input[type="radio"][name="update"]', function(e) {
     e.preventDefault();
     let fullEdit = document.getElementById('fullEdit').checked;
@@ -264,6 +269,10 @@ function serializeQuery(object) {
 
 function generate(config) {
     let newConfig = '';
+    $('#updater').html('کمی صبر کنید ...');
+    setTimeout(function() {
+        $('#updater').html('بروزرسانی کانفیگ');
+    }, 1000);
     if ( config.protocol === 'vless' || config.protocol === 'trojan' ) {
         newConfig += config.protocol+"://";
         newConfig += config.id+"@";
