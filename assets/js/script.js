@@ -108,12 +108,12 @@ function update(config) {
             config.host = config.add;
             config.sni = config.add;
             let fp = getFingerprint();
-            let alpn = getAlpn();
             if ( fp !== "" ) {
-                config.fp = fp;
+                config.fp = (fp !== "none" ? fp : "");
             }
+            let alpn = getAlpn();
             if ( alpn !== "" ) {
-                config.alpn = alpn;
+                config.alpn = (alpn !== "none" ? alpn : "");
             }
         }
         else {
@@ -129,12 +129,12 @@ function update(config) {
             config.host = config.address;
             config.sni = config.address;
             let fp = getFingerprint();
-            let alpn = getAlpn();
             if ( fp !== "" ) {
-                config.fp = fp;
+                config.fp = (fp !== "none" ? fp : "");
             }
+            let alpn = getAlpn();
             if ( alpn !== "" ) {
-                config.alpn = alpn;
+                config.alpn = (alpn !== "none" ? alpn : "");
             }
         }
         else {

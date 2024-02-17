@@ -13,7 +13,7 @@
         <meta name="theme-color" content="#ff7900" />
         <script src="./assets/js/jquery.min.js"></script>
         <script src="./assets/js/bootstrap.min.js"></script>
-        <script src="./assets/js/script.js?v1.1"></script>
+        <script src="./assets/js/script.js?v1.2"></script>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta charset="UTF-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -50,6 +50,9 @@
                     </li>
                 </ul>
                 <div class="clearfix"></div>
+                <div class="alert alert-info" id="defAlert">
+                    <p>این‌ابزار برای ویرایش کانفیگ <a href="https://twitter.com/ircfspace/status/1639539680440926210" target="_blank">دامین پشت کلودفلر</a> پیاده‌سازی شده؛ اگر از ورکر استفاده می‌کنید و تنها قصد تغییر IP را دارید، به انتخاب گزینه بازنویسی کانفیگ نیاز نمی‌باشد.</p>
+                </div>
                 <div class="alert alert-warning none" id="protocolAlert">
                     <p>تنها پروتکل‌های VLESS, VMESS و TROJAN پشتیبانی می‌شوند.</p>
                 </div>
@@ -78,13 +81,14 @@
                     <option value="smt.ircf.space">سامانتل</option>
                     <option value="fnv.ircf.space">فن‌آوا</option>
                     <option value="apt.ircf.space">آپتل</option>
-                    <option selected disabled></option>
+                    <option disabled></option>
                     <option value="other">سایر ...</option>
                 </select>
+                <input class="form-control dirLeft none" placeholder="1.1.1.1" id="cleanIp" />
                 <div class="form-group">
                     <select class="form-control dirLeft" id="utls" disabled>
                         <option selected disabled>Fingerprint</option>
-                        <option value=""></option>
+                        <option value="none"></option>
                         <option value="chrome">Chrome</option>
                         <option value="firefox">Firefox</option>
                         <option value="safari">Safari</option>
@@ -92,13 +96,12 @@
                     </select>
                     <select class="form-control dirLeft" id="alpn" disabled>
                         <option selected disabled>Alpn</option>
-                        <option value=""></option>
+                        <option value="none"></option>
                         <option value="h2">H2</option>
                         <option value="http/1.1">HTTP/1.1</option>
                         <option value="h2,http/1.1">H2, HTTP/1.1</option>
                     </select>
                 </div>
-                <input class="form-control dirLeft none" placeholder="1.1.1.1" id="cleanIp" />
                 <div class="betaVersion rangeSelector">
                     <input type="radio" name="update" id="fullEdit" value="1" />
                     <label for="fullEdit">بازنویسی کانفیگ و تغییر IP</label>
