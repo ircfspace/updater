@@ -4,7 +4,7 @@
         <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
         <link href="./assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
         <link href="./assets/css/vazir.css" rel="stylesheet" />
-        <link href="./assets/css/style.css?v0.9" rel="stylesheet" />
+        <link href="./assets/css/style.css?v1.1" rel="stylesheet" />
         <title>IRCF | بروزرسانی کانفیگ وی‌توری</title>
         <meta name="description" content="آی پی سالم و تمیز برای کلودفلر (کلادفلر) جهت دسترسی به اینترنت آزاد" />
         <meta name="keywords" content="کلودفلر, کلادفلر, cloudflare, cf, آی پی تمیز, آی پی سالم, اسکن آی پی" />
@@ -13,7 +13,7 @@
         <meta name="theme-color" content="#ff7900" />
         <script src="./assets/js/jquery.min.js"></script>
         <script src="./assets/js/bootstrap.min.js"></script>
-        <script src="./assets/js/script.js?v0.10"></script>
+        <script src="./assets/js/script.js?v1.1"></script>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta charset="UTF-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -81,6 +81,23 @@
                     <option selected disabled></option>
                     <option value="other">سایر ...</option>
                 </select>
+                <div class="form-group">
+                    <select class="form-control dirLeft" id="utls" disabled>
+                        <option selected disabled>Fingerprint</option>
+                        <option value=""></option>
+                        <option value="chrome">Chrome</option>
+                        <option value="firefox">Firefox</option>
+                        <option value="safari">Safari</option>
+                        <option value="randomized">Randomized</option>
+                    </select>
+                    <select class="form-control dirLeft" id="alpn" disabled>
+                        <option selected disabled>Alpn</option>
+                        <option value=""></option>
+                        <option value="h2">H2</option>
+                        <option value="http/1.1">HTTP/1.1</option>
+                        <option value="h2,http/1.1">H2, HTTP/1.1</option>
+                    </select>
+                </div>
                 <input class="form-control dirLeft none" placeholder="1.1.1.1" id="cleanIp" />
                 <div class="betaVersion rangeSelector">
                     <input type="radio" name="update" id="fullEdit" value="1" />
