@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <link href="./assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="./assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
+        <link href="./assets/css/vazir.css" rel="stylesheet" />
+        <link href="./assets/css/style.css?v0.9" rel="stylesheet" />
+        <title>IRCF | بروزرسانی کانفیگ وی‌توری</title>
+        <meta name="description" content="آی پی سالم و تمیز برای کلودفلر (کلادفلر) جهت دسترسی به اینترنت آزاد" />
+        <meta name="keywords" content="کلودفلر, کلادفلر, cloudflare, cf, آی پی تمیز, آی پی سالم, اسکن آی پی" />
+        <meta name="robots" content="index,follow,noodp" />
+        <meta name="googlebot" content="index,follow" />
+        <meta name="theme-color" content="#ff7900" />
+        <script src="./assets/js/jquery.min.js"></script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+        <script src="./assets/js/script.js?v0.9"></script>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
+                    <a href=".">
+                        <img src="./assets/img/cflogo.png" alt="logo" />
+                        <h1>اینترنت برای همه؛ یا هیچ‌کس!</h1>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="clearfix"></div>
+        <div class="container">
+            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12 col-centered">
+                <ul class="nav nav-tabs">
+                    <li>
+                        <a href="https://ircf.space">معرفی</a>
+                    </li>
+                    <li>
+                        <a href="https://ircf.space/list.php">لیست IP</a>
+                    </li>
+                    <li class="active">
+                        <a href="./index.html">کانفیگ</a>
+                    </li>
+                    <li class="pull-left">
+                        <a href="https://ircf.space/contacts.php">تماس‌باما</a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+                <div class="alert alert-warning none" id="protocolAlert">
+                    <p>تنها پروتکل‌های VLESS, VMESS و TROJAN پشتیبانی می‌شوند.</p>
+                </div>
+                <div class="alert alert-warning none" id="portAlert">
+                    <p>از یک <a href="https://twitter.com/ircfspace/status/1639539680440926210" target="_blank">دامین پشت کلودفلر</a> با <a href="https://twitter.com/ircfspace/status/1639735236941471744" target="_blank">پورت استاندارد</a> استفاده کنید.</p>
+                </div>
+                <input class="form-control dirLeft" placeholder="vless://" value="" id="defConfig" />
+                <select class="form-control dirLeft" id="options">
+                    <option></option>
+                    <option value="mci.ircf.space">mci.ircf.space</option>
+                    <option value="mcix.ircf.space">mcix.ircf.space</option>
+                    <option value="mtn.ircf.space">mtn.ircf.space</option>
+                    <option value="mtnx.ircf.space">mtnx.ircf.space</option>
+                    <option value="rtl.ircf.space">rtl.ircf.space</option>
+                    <option value="mkh.ircf.space">mkh.ircf.space</option>
+                    <option value="hwb.ircf.space">hwb.ircf.space</option>
+                    <option value="ast.ircf.space">ast.ircf.space</option>
+                    <option value="sht.ircf.space">sht.ircf.space</option>
+                    <option value="prs.ircf.space">prs.ircf.space</option>
+                    <option value="mbt.ircf.space">mbt.ircf.space</option>
+                    <option value="ask.ircf.space">ask.ircf.space</option>
+                    <option value="rsp.ircf.space">rsp.ircf.space</option>
+                    <option value="afn.ircf.space">afn.ircf.space</option>
+                    <option value="ztl.ircf.space">ztl.ircf.space</option>
+                    <option value="psm.ircf.space">psm.ircf.space</option>
+                    <option value="smt.ircf.space">smt.ircf.space</option>
+                    <option value="fnv.ircf.space">fnv.ircf.space</option>
+                    <option value="other">موارد دیگر</option>
+                </select>
+                <input class="form-control dirLeft none" placeholder="1.1.1.1" id="cleanIp" />
+                <div class="betaVersion rangeSelector">
+                    <input type="radio" name="update" id="fullEdit" value="1" />
+                    <label for="fullEdit">بازنویسی کانفیگ و تغییر IP</label>
+                    <div class="clearfix"></div>
+                    <input type="radio" name="update" id="changeIp" value="1" checked />
+                    <label for="changeIp">فقط تغییر IP</label>
+                </div>
+                <div class="clearfix"></div>
+                <div class="fullBox none" id="result">
+                    <div class="rightSide">
+                        <img src="https://quickchart.io/qr?size=300x200&light=ffffff&text=" />
+                    </div>
+                    <div class="leftSide">
+                        <textarea class="form-control dirLeft" readonly></textarea>
+                    </div>
+                </div>
+                <br>
+                <div id="donate" class="modal fade" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">دونیت</h4>
+                            </div>
+                            <div class="modal-body modalBodyOverflow">
+                                <p>درصورت تمایل برای دونیت می‌تونین از یکی‌از روش‌های زیر استفاده کنین:</p>
+                                <div class="dirLeft">
+                                    <small>Buy me a coffee:</small>
+                                    <br>
+                                    <a href="https://buymeacoffee.com/ircf" class="btn btn-default btn-block" target="_blank">buymeacoffee.com/ircf</a>
+                                    <br>
+                                    <small>Tether (TRC20):</small>
+                                    <br>
+                                    <input type="text" class="form-control text-center" value="TF5cT8fQMuajHGGH141U9JbTygFojkrFdB" />
+                                    <br>
+                                    <small>Bitcoin:</small>
+                                    <br>
+                                    <input type="text" class="form-control text-center" value="bc1qyhx0qn9722vdvlz4s64g4sxq3yne0f5ryz3jyd" />
+                                    <br>
+                                    <small>Tron (TRX):</small>
+                                    <br>
+                                    <input type="text" class="form-control text-center" value="TF5cT8fQMuajHGGH141U9JbTygFojkrFdB" />
+                                    <br>
+                                    <small>Ethereum:</small>
+                                    <br>
+                                    <input type="text" class="form-control text-center" value="0x2A72777912A15A6387a1116f9bDDFe1Cb9474BF1" />
+									<br>
+									<small>TON (ERC20):</small>
+									<br>
+									<input type="text" class="form-control text-center" value="0x2A72777912A15A6387a1116f9bDDFe1Cb9474BF1" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">حله</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <footer>
+                    <p class="text-center">
+                        © کدنویسی‌شده توسط
+                        <a href="https://github.com/ircfspace/config" target="_blank">IRCF</a>
+                    </p>
+                    <script>
+                        window.addEventListener('load', function() {
+                            //$('#defConfig').trigger('keyup')
+                        });
+                    </script>
+                    <div class="text-center">
+                        <a href="#" class="btn btn-link btn-normal btn-lg btn-outline donateLink" data-toggle="modal" data-target="#donate">☕</a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
